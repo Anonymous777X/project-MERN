@@ -1,0 +1,24 @@
+{
+  "name": "major-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anonymous777X/project-MERN.git"
+  },
+  "author": "Sahil Patyal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anonymous777X/project-MERN/issues"
+  },
+  "homepage": "https://github.com/Anonymous777X/project-MERN#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.0",
+    "mongoose": "^8.7.0"
+  },
+    "type":"module"
+}
