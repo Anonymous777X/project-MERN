@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body><center>
+<% layout("/layouts/boilerplate") %>
+<body>
     <h3> Please Fill Place Details</h3>
     <form action="/listings" method="POST">
         Title: <input type="text" name="listings[title]">
@@ -16,7 +10,5 @@
         Country: <input type="text" name="listings[country]">
         <button>Confirm Details</button>
     </form>
-</center>
     
 </body>
-</html>

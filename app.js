@@ -1,9 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
 import path from "path";
-import { fileURLToPath } from "url";
+import { fileURLToPath } from "url";  
 import { listing } from "./models/list-schema.js";
 import methodOverride from "method-override";
+import ejsMate from "ejs-mate";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -13,6 +14,9 @@ app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"/views"));
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
+app.engine("ejs",ejsMate);
+app.use(express.static(path.join(__dirname,"public/css")));
+app.use(express.static(path.join(__dirname,"public/js")));
 
 async function main(){
     mongoose.connect("mongodb://127.0.0.1:27017/wander-lust");
