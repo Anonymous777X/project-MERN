@@ -33,11 +33,12 @@ body{
 }
 .card{
     margin-bottom: 2rem;
+    transition: 0.25s ease-in-out;
     border: none;
 }
 .card-img-top{
     border-radius: 1rem;
-    transition: 0.25s ease-in-out;
+    
     width: 100%;
     object-fit: cover;
 }
@@ -51,9 +52,11 @@ body{
     align-content: space-around;
     padding: 2% 12%;
 }
-.card:hover .card-img-top{
+.card:hover{
   
   transform: scale(1.03);
   outline: 2px solid #fd5c63;
   border-radius: 1rem;
+  background-color: #fd5c63;
+  color: white;
 }
