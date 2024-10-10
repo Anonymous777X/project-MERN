@@ -1,13 +1,42 @@
 <% layout("/layouts/boilerplate") %>
 <body>
-    <h3> Please Update The Place Details</h3>
+    <div  id="newlist">
+    <div><h3> Please Update The Desired Place Details</h3></div>
     <form action="/listings/<%=data._id  %>?_method=PUT" method="POST">
-        Title: <input type="text" name="listings[title]" value="<%=data.title  %>"><br><br>
-        description: <textarea name="listings[description]"><%=data.description  %></textarea><br><br>
-        image: <input type="text" name="listings[image]" placeholder="Paste Image Url Here!" value="<%=data.image  %>"><br><br>
-        Set Price: <input type="number" name="listings[price]" value="<%=data.price  %>"><br><br>
-        Location: <input type="text" name="listings[location]" value="<%=data.location  %>"><br><br>
-        Country: <input type="text" name="listings[country]" value="<%=data.country  %>"><br><br>
-        <button>Confirm Details</button>
+        <div class="mb-3">
+            <label for="title" class="from-label">Title</label>
+            <input type="text" name="listings[title]"  class="form-control"  value="<%=data.title  %>">
+        </div>
+
+       <div class="mb-3">   
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listings[description]" class="form-control"><%=data.description  %></textarea>
+       </div>
+
+       <div class="mb-3">
+        <label for="image" class="from-label">Image</label>
+        <input type="text" name="listings[image]" class="form-control"  value="<%=data.image  %>">
+       </div>
+
+      <div class="nav-last">
+        <div class="mb-3 col-md-4" >
+            <label for="price" class="from-label">Price</label>
+            <input type="number" name="listings[price]" class="form-control" value="<%=data.price  %>">
+           </div>
+    
+            <div class="mb-3 col-md-7">
+                <label for="location" class="from-label">Location</label>
+                <input type="text" name="listings[location]" class="form-control"  value="<%=data.location  %>">
+            </div>
+    
+            <div class="mb-3 col-md-5">
+                <label for="country" class="from-label">Country</label>
+                <input type="text" name="listings[country]" class="form-control"   value="<%=data.country  %>">
+            </div>
+      </div>
+
+        <button type="submit" class="btn btn-dark">Confirm Update</button>
+        </form>
+    </div>
 </body>
 </html>

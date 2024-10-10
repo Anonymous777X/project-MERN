@@ -1,6 +1,13 @@
 body{
     font-family: "Plus Jakarta Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+#container{
+    flex:1;
+}
+/* Nav-Bar*/
 .navbar-brand{
     color: #fd5c63;
     font-size: 2rem;
@@ -9,6 +16,10 @@ body{
     height: 4rem;
     background: whitesmoke;
 }
+.navbar-nav a:hover{
+    color: #fd5c63 !important;
+}
+
 .footer-container{
     display: flex;
     flex-direction: column;
@@ -30,6 +41,8 @@ body{
 }
 .card-show{
     text-decoration: none;
+    display: flex;
+    justify-content: center;
 }
 .card{
     margin-bottom: 2rem;
@@ -47,10 +60,9 @@ body{
 }
 .row{
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
-    align-content: space-around;
-    padding: 2% 12%;
+    align-items: center;
+    padding: 1rem 10rem;
 }
 .card:hover{
   
@@ -59,4 +71,62 @@ body{
   border-radius: 1rem;
   background-color: #fd5c63;
   color: white;
+}
+/* new list   */
+#newlist{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1vh;
+}
+.nav-last{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+/* Override the blue focus outline */
+input:focus, 
+textarea:focus, 
+select:focus {
+  outline: none !important; /* Remove the default outline */
+  box-shadow: 0 0 0 0.25rem rgba(253, 92, 99, 0.5) !important; /* Customize the focus shadow */
+  border-color: #fd5c63 !important; /* Optional: Change border color on focus */
+}
+
+/* show.ejs / details page */
+
+#show-ejs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vh;
+    max-width: 100%;
+    
+}
+@media (max-width:400px) {
+    #show-ejs img{
+        width:80vw !important;
+        height: 40vh !important;
+    }
+}
+.image{
+    display: flex;
+    justify-content: center;
+    padding: 2vh;
+}
+.image img{
+    width: 60vw;
+    height: 40vh;
+}
+.show-btns{
+    margin: 2vh;
+}
+.show-btns .delete{
+    margin-left: 2vh;
+}
+.cards{
+    width: 100%;
+}
+.card-text{
+    text-align: center;
 }

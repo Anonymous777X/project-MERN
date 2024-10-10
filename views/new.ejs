@@ -1,14 +1,44 @@
 <% layout("/layouts/boilerplate") %>
 <body>
-    <h3> Please Fill Place Details</h3>
-    <form action="/listings" method="POST">
-        Title: <input type="text" name="listings[title]">
-        description: <textarea name="listings[description]">Place Detalis here</textarea>
-        image: <input type="text" name="listings[image]" placeholder="Paste Image Url Here!">
-        Set Price: <input type="number" name="listings[price]">
-        Location: <input type="text" name="listings[location]">
-        Country: <input type="text" name="listings[country]">
-        <button>Confirm Details</button>
-    </form>
+    <div  id="newlist">
+        <div>
+            <h3> Please Fill Place Details</h3>
+        </div>
     
+    <form action="/listings" method="POST">
+        <div class="mb-3">
+            <label for="title" class="from-label">Title</label>
+            <input type="text" name="listings[title]" placeholder="Enter an eye Catchy Title" class="form-control">
+        </div>
+
+       <div class="mb-3">   
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listings[description]" class="form-control" placeholder="What's Special About Your Place"></textarea>
+       </div>
+
+       <div class="mb-3">
+        <label for="image" class="from-label">Image</label>
+        <input type="text" name="listings[image]" placeholder="Paste Image Url" class="form-control">
+       </div>
+
+      <div class="nav-last">
+        <div class="mb-3 col-md-4" >
+            <label for="price" class="from-label">Price</label>
+            <input type="number" name="listings[price]" class="form-control" placeholder="Set Price">
+           </div>
+    
+            <div class="mb-3 col-md-7">
+                <label for="location" class="from-label">Location</label>
+                <input type="text" name="listings[location]" class="form-control" placeholder="City or State">
+            </div>
+    
+            <div class="mb-3 col-md-5">
+                <label for="country" class="from-label">Country</label>
+                <input type="text" name="listings[country]" class="form-control" placeholder="India" value="India">
+            </div>
+      </div>
+
+        <button type="submit" class="btn btn-dark">Confirm</button>
+    </form>
+</div>
 </body>
