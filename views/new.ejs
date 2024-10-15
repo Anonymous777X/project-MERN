@@ -5,36 +5,39 @@
             <h3> Please Fill Place Details</h3>
         </div>
     
-    <form action="/listings" method="POST">
+    <form action="/listings" method="POST" novalidate class="needs-validation" >
         <div class="mb-3">
             <label for="title" class="from-label">Title</label>
-            <input type="text" name="listings[title]" placeholder="Enter an eye Catchy Title" class="form-control">
+            <input type="text" name="listings[title]" placeholder="Enter an eye Catchy Title" class="form-control" required>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
         </div>
 
        <div class="mb-3">   
         <label for="description" class="form-label">Description</label>
-        <textarea name="listings[description]" class="form-control" placeholder="What's Special About Your Place"></textarea>
+        <textarea name="listings[description]" class="form-control" placeholder="What's Special About Your Place" required></textarea>
        </div>
 
        <div class="mb-3">
-        <label for="image" class="from-label">Image</label>
-        <input type="text" name="listings[image]" placeholder="Paste Image Url" class="form-control">
+        <label for="image" class="from-label">Image's Link</label>
+        <input type="text" name="listings[image]" placeholder="Optional (Default Image will be used, if no link provided.)" class="form-control">
        </div>
 
       <div class="nav-last">
         <div class="mb-3 col-md-4" >
             <label for="price" class="from-label">Price</label>
-            <input type="number" name="listings[price]" class="form-control" placeholder="Set Price">
+            <input type="text" name="listings[price]" class="form-control" placeholder="Set Price" required>
            </div>
     
             <div class="mb-3 col-md-7">
                 <label for="location" class="from-label">Location</label>
-                <input type="text" name="listings[location]" class="form-control" placeholder="City or State">
+                <input type="text" name="listings[location]" class="form-control" placeholder="City or State" required>
             </div>
     
             <div class="mb-3 col-md-5">
                 <label for="country" class="from-label">Country</label>
-                <input type="text" name="listings[country]" class="form-control" placeholder="India" value="India">
+                <input type="text" name="listings[country]" class="form-control" placeholder="India" value="India" required>
             </div>
       </div>
 
