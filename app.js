@@ -7,6 +7,7 @@ import methodOverride from "method-override";
 import ejsMate from "ejs-mate";
 import { wrapAsync } from "./utils/wrapAsync.js";
 import { expressError } from "./utils/expressError.js";
+import { joiSchema } from "./joi-schema.js"; 
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -34,6 +35,22 @@ app.listen(port,()=>{
 app.get("/",(req,res)=>{
     res.send("response recieved");
 });
+
+function validateschema(req, res, next) {
+    let { error } = joiSchema.validate(req.body);
+    if (error) {
+        let errorMessage = error.details.map(err => err.message).join(",");
+        console.log(errorMessage)
+        // Remove "listings." from the error message if it exists
+        errorMessage = errorMessage.replace(/"listings\.|"/g, '').replace(/^(\w)/, (c) => c.toUpperCase());
+
+        throw new expressError(400, errorMessage);
+    } else {
+        next();
+    }
+}
+
+
 //index
 app.get("/listings",wrapAsync(async (req,res)=>{
   let data = await listing.find();
@@ -44,7 +61,8 @@ app.get("/listings",wrapAsync(async (req,res)=>{
 app.get("/listings/new",(req,res)=>{
     res.render("new.ejs");
 });
-app.post("/listings",wrapAsync(async(req,res,next)=>{
+app.post("/listings",validateschema ,wrapAsync(async(req,res,next)=>{
+  
     let {listings}= req.body;
     await new listing(listings).save();
     res.redirect("/listings?posted=true");
@@ -83,7 +101,6 @@ app.all("*",(req,res,next)=>{
 });
 
 app.use((err,req,res,next)=>{
-    let {statusCode,message} = err;
-    console.log(err);
-    res.status(statusCode || 500).send(message || "Something Went Wrong");
+    let {statusCode=500,message="oops! something went wrong."} = err;
+    res.status(statusCode).render("error.ejs",{message}); 
 })
